@@ -13,7 +13,6 @@ gem 'omniauth-facebook'
 gem 'acts-as-taggable-on', '~> 3.4'
 
 gem "select2-rails"
-gem 'sqlite3'
 gem "font-awesome-rails"
 
 # Gems used only for assets and not required
