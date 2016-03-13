@@ -8,6 +8,7 @@
       initMap();
       $.get(points_path + "/<%= @point.id %>.json", function(data) {
         data = [data];
+        console.log("data:",data)
         addPins(data);
         map.setZoom(17);
         var center = new google.maps.LatLng(data[0]["lat"], data[0]["lng"]);

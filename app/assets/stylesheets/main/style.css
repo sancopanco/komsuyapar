@@ -4,9 +4,9 @@ html, body {
   height: 100%;
 }
 
-a, a:link, a:visited, a:hover, a:active {
+/*a, a:link, a:visited, a:hover, a:active {
   color: #e25a00;
-}
+}*/
 
 .brand {
   font-family: "PT Sans Caption", Arial, sans-serif;
@@ -24,10 +24,21 @@ a, a:link, a:visited, a:hover, a:active {
 
 #wrap {
   min-height: 100%;
-  height: auto !important;
+  /*height: auto !important;*/
   height: 100%;
   margin: 0 auto -60px;
   padding: 0 0 60px;
+  
+  position: relative;
+    width: 100%;
+    min-height: auto;
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    background-size: cover;
+    -o-background-size: cover;
+    background-position: center;
+   /* background-image: url('/assets/header.jpg');*/
+    text-align: center;
 }
 
 #wrap > .container {
@@ -37,9 +48,7 @@ a, a:link, a:visited, a:hover, a:active {
 /*================================================================================================= NAVBAR */
 
 .navbar {
-  background-color: #539000;
-  border-bottom: 1px solid #407f00;
-  box-shadow: 0 0 5px -1px #333;
+   background-color: #0BCED8;
 }
 
 /*=============================================== LINKS */
@@ -49,7 +58,7 @@ a, a:link, a:visited, a:hover, a:active {
 }
 
 .navbar .navbar-nav a:hover {
-  color: #fff !important;
+  color: ##F7F3F3 !important;
 }
 
 .navbar .navbar-nav .active a,
@@ -145,7 +154,7 @@ a, a:link, a:visited, a:hover, a:active {
 #footer {
   height: 60px;
   color: #fff;
-  background-color: #D9EAC0;
+  background-color: #585A54;;
 }
 
 #footer .credit {
@@ -247,5 +256,36 @@ a, a:link, a:visited, a:hover, a:active {
   height: 30px;
   border-radius: 3px;
 }
+
+.input-group {
+    max-width: 500px;
+    margin: 30px auto 0;
+}
+.yetenek-search{
+  margin-bottom: 50px;
+}
+
+.btn-yetenek-ekle{
+    color: #ffffff;
+    background-color: #F0AA40;
+    border-color: #EEEEEE;
+    font-weight: 700;
+    border-radius: 300px;
+}
+
+.btn-yetenek-ekle:hover,
+.btn-yetenek-ekle:focus,
+.btn-yetenek-ekle:active,
+{
+    color: #ffffff;
+    
+}
+
+
+
+
+
+
+
 
 /*================================================================================================= END */

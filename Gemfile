@@ -1,7 +1,7 @@
 source 'http://rubygems.org'
 
-gem 'rails', '3.1.0'
-
+gem 'rails', '3.2.16'
+ruby '2.0.0'
 # Bundle edge Rails instead:
 # gem 'rails',     :git => 'git://github.com/rails/rails.git'
 
@@ -10,14 +10,16 @@ gem 'thin'
 
 gem 'pg'
 gem 'omniauth-facebook'
+gem 'acts-as-taggable-on', '~> 3.4'
 
+gem "select2-rails"
 gem 'sqlite3'
+gem "font-awesome-rails"
 
 # Gems used only for assets and not required
 # in production environments by default.
 group :assets do
-  gem 'sass-rails', "  ~> 3.1.0"
-  gem 'coffee-rails', "~> 3.1.0"
+  gem 'sass-rails'
   gem 'uglifier'
 end
 

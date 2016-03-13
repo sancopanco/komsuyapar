@@ -11,3 +11,4 @@
 //= require main/markerclusterer
 //= require main/handlebars
 //= require main/script
+//= require select2

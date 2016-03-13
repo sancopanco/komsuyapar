@@ -1,6 +1,7 @@
 class User < ActiveRecord::Base
-
   has_many :points
+  acts_as_taggable
+  acts_as_taggable_on :skills
 
   def self.create_with_omniauth(auth)
     create! do |user|

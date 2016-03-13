@@ -5,4 +5,7 @@
 */
 
 //= require main/bootstrap
+//= require font-awesome
+//= require select2
+//= require select2-bootstrap
 //= require main/style

@@ -15,7 +15,7 @@ class PointsController < ApplicationController
   # GET /points/1.json
   def show
     @page_name = "Lokasyon #" + params[:id] + " | "
-    @page_description = "Geridönüşüm noktası"
+    @page_description = "Yetenek noktası"
 
     @point = Point.find(params[:id])
 
@@ -28,8 +28,8 @@ class PointsController < ApplicationController
   # GET /points/new
   # GET /points/new.json
   def new
-    @page_name = "Geridönüşüm noktası ekle | "
-    @page_description = "Yeni geridönüşüm noktası ekle"
+    @page_name = "Yetenek ekle | "
+    @page_description = "Yeni yetenek ekle"
     @wrapped = true
 
     @point = Point.new
@@ -44,9 +44,14 @@ class PointsController < ApplicationController
   def create
     @point = Point.new(params[:point])
     @point.user_uid = current_user.uid
+    skill_ids = params[:point_skils][:ids]
+    puts "skill_ids: #{skill_ids}"
+    skill_list = skill_ids.select(&:present?).join(",")
+    @point.tag_list.add(skill_list)
+    current_user.skill_list = skill_list
 
     respond_to do |format|
-      if @point.save
+      if @point.save && current_user.save
         format.html { redirect_to @point, notice: 'Point was successfully created.' }
       else
         format.html { redirect_to :add }

@@ -3,7 +3,7 @@
 class HelloController < ApplicationController
 
   def index
-    @page_name = "Geri dönüşüm noktaları haritası | "
+    @page_name = "Yetenek haritası | "
     @page_description = ""
     @wrapped = true
   end

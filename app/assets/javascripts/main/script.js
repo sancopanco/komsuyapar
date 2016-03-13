@@ -88,8 +88,7 @@ function addPins(data) {
   google.maps.event.addListener(map, "click", function() {
     infowindow.close();
   });
-  var pins = ["pin-recycle-bin.png", "pin-recycling-center.png"];
-  var titles = ["Geridönüşüm", "Toplama noktası"];
+  
   Handlebars.registerHelper("ifequal", function(op1, op2, options) {
     if (op1 === op2) {
       return options.fn(this);
@@ -101,8 +100,8 @@ function addPins(data) {
   for (var i = 0; i < data.length; i++) {
     var marker = new google.maps.Marker({
       position: new google.maps.LatLng(data[i]["lat"], data[i]["lng"]),
-      icon: "/assets/" + pins[data[i]["point_type"]],
-      title: titles[data[i]["type"]],
+      // icon: "/assets/" + pins[data[i]["point_type"]],
+      title: "Yetenek noktası",
       index: i,
       map: map
     });
@@ -121,17 +120,17 @@ function addPins(data) {
   }
   var markerCluster = new MarkerClusterer(map, markers, {
     gridSize: 30,
-    maxZoom: 11,
-    styles: [
-      {
-        url: "/assets/tree.png",
-        width: 32,
-        height: 32,
-        anchor: [7, null],
-        textColor: "#570a36",
-        textSize: 10
-      }
-    ]
+    maxZoom: 11
+    // styles: [
+    //   {
+    //     // url: "/assets/tree.png",
+    //     width: 32,
+    //     height: 32,
+    //     anchor: [7, null],
+    //     textColor: "#570a36",
+    //     textSize: 10
+    //   }
+    // ]
   });
 }
 
