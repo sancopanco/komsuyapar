@@ -65,11 +65,12 @@
 
       <% else %>
 
-        <p id="stahp">Konum eklemek içim Facebook ile giriş yapmalısınız.</p>
-        <a href="/auth/facebook" id="sign-in" class="btn btn-primary">
-          <%= image_tag "facebook-icon.png", :alt => "facebook icon" %>
-          Facebook ile bağlan
-        </a>
+        <p id="stahp">Yetenek eklemek içim Facebook ile giriş yapmalısınız.</p>
+        <p>
+        <a class="btn btn-signup btn-fb" style="padding: 0px;" href="/auth/facebook" id="facebook_sign_in">
+          <i class="fa fa-facebook"></i> <span>Facebook ile bağlan</span></a>
+          
+        </p>
 
       <% end %>
 

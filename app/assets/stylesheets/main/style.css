@@ -284,6 +284,51 @@ html, body {
 
 
 
+.btn-fb {
+  background: #3b5998;
+  color: #fff;
+}
+
+.btn-signup {
+padding: 0;
+font-size: 1.250em;
+line-height: 24px;
+border: 0;
+width: 50%;
+}
+
+
+.btn-signup i {
+display: block;
+float: left;
+padding: 15px 0 16px 0;
+font-size: 24px;
+width: 44px;
+text-align: center;
+background: rgba(0, 0, 0, 0.2);
+-webkit-border-radius: 4px 0 0 4px;
+-moz-border-radius: 4px 0 0 4px;
+-ms-border-radius: 4px 0 0 4px;
+-o-border-radius: 4px 0 0 4px;
+border-radius: 4px 0 0 4px;
+}
+
+.fa {
+display: inline-block;
+font-family: FontAwesome;
+font-style: normal;
+font-weight: normal;
+line-height: 1;
+-webkit-font-smoothing: antialiased;
+-moz-osx-font-smoothing: grayscale;
+}
+.btn-signup span {
+display: block;
+padding: 15px 20px 16px 59px;
+}
+
+
+
 
 
 
