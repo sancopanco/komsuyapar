@@ -22,7 +22,7 @@ function init() {
     button.html('...');
     $.post('/report.json', { point_id: button.attr('data-point-id') }, function(data) {
       if (data.status == 'success') {
-        button.html('Hata bildirildi');
+        button.html('Şikayet edildi');
         button.addClass('disabled');
       } else {
         button.html('Bir hata oluştu.');

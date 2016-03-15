@@ -1,6 +1,6 @@
-# coding: utf-8
-
 class PointsController < ApplicationController
+  before_filter :signed_in_user, only: [:create, :report]
+
   # GET /points
   # GET /points.json
   def index
@@ -63,10 +63,9 @@ class PointsController < ApplicationController
   # POST /report.json
   def report
     if Point.where(id: params[:point_id].to_i).any?
-      @r = Report.new()
+      @r = current_user.reports.build
       @r.point_id = params[:point_id].to_i
       @r.user_uid = current_user.uid
-
       respond_to do |format|
         if @r.save
           format.json { render :json => { :status => 'success' } }

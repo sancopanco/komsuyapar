@@ -21,10 +21,11 @@
       {{/if}}
     </div>
     <% if current_user %>
-      <button id="report" type="button" class="btn btn-success btn-sm" data-point-id="{{id}}">Hata bildir</button>
-    <% else %>
-      <a id="report" href="/auth/facebook" class="btn btn-success btn-sm" data-point-id="{{id}}">Hata bildir</a>
-    <% end %>
+      <button id="report" type="button" class="btn btn-success btn-sm" data-point-id="{{id}}">
+        Şikayet et
+      </button>
+   <% end %>
+   
     <%= image_tag "avatar.png", :class => "img-avatar pull-right", :alt => "user avatar", :title => "Ekleyen ?" %>
   </div>
 </script>
