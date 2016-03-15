@@ -1,20 +1,19 @@
+class YetenekInitDb < ActiveRecord::Migration
+  def up
   create_table "points", :force => true do |t|
     t.decimal  "lat",           :precision => 9, :scale => 6
     t.decimal  "lng",           :precision => 9, :scale => 6
     t.integer  "point_type"
     t.string   "name"
-    t.string   "website"
     t.datetime "created_at"
     t.datetime "updated_at"
-    t.boolean  "glass"
     t.string   "address"
     t.string   "user_uid"
-    t.boolean  "textiles"
-    t.string   "phone"
-    t.integer  "batch"
+    t.integer "user_id"
   end
 
   create_table "reports", :force => true do |t|
+    t.integer "user_id"
     t.string   "user_uid"
     t.integer  "point_id"
     t.datetime "created_at"
@@ -46,7 +45,11 @@
     t.string   "uid"
     t.string   "email"
     t.string   "name"
+    t.string   "username"
     t.string   "token"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
+  
+  end
+end

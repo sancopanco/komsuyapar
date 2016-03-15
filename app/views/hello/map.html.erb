@@ -6,6 +6,7 @@
       initSearch(true);
       initMap();
       $.get(points_path + ".json", function(data) {
+        console.log("map path all points data",data)
         addPins(data);
       });
     });

@@ -42,13 +42,14 @@ class PointsController < ApplicationController
   # POST /points
   # POST /points.json
   def create
-    @point = Point.new(params[:point])
+    @point =  current_user.points.build(params[:point])
     @point.user_uid = current_user.uid
     skill_ids = params[:point_skils][:ids]
     puts "skill_ids: #{skill_ids}"
-    skill_list = skill_ids.select(&:present?).join(",")
-    @point.tag_list.add(skill_list)
-    current_user.skill_list = skill_list
+    skill_list = skill_ids.select(&:present?)
+    #@point.tag_list.add(skill_list)
+    current_user.skill_list.add(Tag.find(skill_list).map(&:name))
+
 
     respond_to do |format|
       if @point.save && current_user.save

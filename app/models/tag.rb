@@ -1,3 +1,8 @@
 class Tag < ActiveRecord::Base
-  attr_accessible :name
+  
+  # before_save do
+  # 	self.name = self.name.downcase
+  # end
+
+
 end
