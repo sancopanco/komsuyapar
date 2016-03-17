@@ -1,4 +1,4 @@
-require 'redis-namespace'
+#require 'redis-namespace'
 #require 'sidekiq/middleware/i18n'
 
 url = YAML.load_file("#{Rails.root}/config/redis.yml")[Rails.env]
