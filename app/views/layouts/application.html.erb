@@ -8,6 +8,11 @@
     <%= stylesheet_link_tag "application" %>
     <link href='https://fonts.googleapis.com/css?family=Open+Sans'
      rel='stylesheet' type='text/css'>
+     <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.0/jquery.min.js"></script>
+     
+    <!-- Latest compiled and minified JavaScript -->
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js" integrity="sha384-0mSbJDEHialfmuBBQP6A4Qrprq5OVfW37PRR3j5ELqxss1yVqOtnepnHVP9aJ7xS" crossorigin="anonymous"></script> 
+    <script src="https://js.pusher.com/3.0/pusher.min.js"></script>
     <%= javascript_include_tag "application" %>
     <%= javascript_include_tag "https://maps.googleapis.com/maps/api/js?key=AIzaSyBk8oJpa8bHai2nEGnIqCjZga4fHhnJawY&sensor=true&language=tr" %>
     <%= render :partial => "layouts/infowindow" %>
@@ -56,6 +61,15 @@
               <%= link_to "Nedir?", about_path %>
             </li>
             <% if current_user %>
+            <li class="dropdown" id="nav-notification">
+               <a href="#" class="dropdown-toggle" data-toggle="dropdown">
+                 <i class="fa fa-bell"></i>
+               </a>
+               <ul class="dropdown-menu">
+                <li class="divider"></li>
+                <li><a href="http://www.sensekit.com/bildirimler">Tüm bildirimleri göster</a></li>
+               </ul>
+             </li>
               <li class="dropdown">
                 <a href="#" class="dropdown-toggle" data-toggle="dropdown">
                   <%= image_tag "https://graph.facebook.com/" + current_user.uid + "/picture", :class => "img-avatar", :alt => "user avatar" %>

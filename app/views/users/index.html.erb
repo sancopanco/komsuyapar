@@ -1,0 +1,49 @@
+<% content_for :head do %>
+  <%= stylesheet_link_tag "users" %>
+  <script type="text/javascript">
+    $(function() {
+      init();
+      initSearch(true);
+      initMap();
+      $.get(points_path + ".json", function(data) {
+        console.log("map path all points data",data)
+        addPins(data);
+      });
+    });
+  </script>
+<% end %>
+
+
+
+<main class="container  search-map-mode" role="main">
+ <div id="search-listing-container" style="margin-top: 60px;">
+
+		<div class="row">
+
+			<div class="col-md-9" id="search-content" style="min-height: 0px;">
+
+			    <div class="row">
+					
+						<div class="search-results-container">
+               <div class="list-group">
+                 <% if @users.size > 0 %> 
+                   <%= render @users %>
+                  <%else%>
+                    <p> Aranan kriterlere uygun sonuç bulunamadı.</p>
+                  <%end%>
+               </div>
+            </div>
+				</div>
+      </div>
+
+			<div class="col-md-3" id="search-sidebar">
+        <div id="sidebar-gmap-container" data-location-phrase="İstanbul">
+            <div id="map-canvas"></div>
+        </div>				
+			</div>
+
+		</div>
+
+	</div>
+
+<main>

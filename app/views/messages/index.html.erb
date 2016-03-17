@@ -1,0 +1,13 @@
+<h1>Listing messages</h1>
+
+<table>
+<% @messages.each do |message| %>
+  <tr>
+   <%= render message %>
+  </tr>
+<% end %>
+</table>
+
+<br />
+
+

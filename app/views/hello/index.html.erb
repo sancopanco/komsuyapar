@@ -15,15 +15,23 @@
       <p class="lead">
         İhtiyacın olan hizmetleri yakın çevrenden ara, yapabileceklerini sen de ekle!
       </p>
-      
-       <form id="search" class="yetenek-search">
-              <div class="input-group input-group-lg">
-                <input id="city" class="form-control" type="text" placeholder="Hizmet ara...">
+
+      <%= form_tag users_path, method: :get, :class=>"yetenek-search" do %>
+        <p>
+           <div class="input-group input-group-lg">
+                <input id="city" class="form-control" name="query" autocomplete="false"
+                type="text" placeholder="Hizmet ara..." value="<% params[:query] %>">
                 <span class="input-group-btn">
                         <button class="btn" type="submit">Ara</button>
                 </span>
               </div>
-       </form>
+        </p>
+      <%end%>
+
+
+
+      
+       
        <p>
         <%= link_to "SEN DE YETENEKLERİNİ EKLE", 
           add_path,:class=>"btn btn-lg btn-yetenek-ekle" %> 

@@ -19,9 +19,16 @@
           </p>
         </a>
       {{/if}}
+         <br/>
+          <button id="btn_message"
+           data-toggle="modal" data-target="#exampleModal" 
+           type="button" class="btn btn-info btn-sm" data-recipient_id-id="{{user_id}}" 
+            data-point-id="{{id}}">
+            <i class="fa fa-envelope"></i> Mesaj Gönder
+          </button>
     </div>
     <% if current_user %>
-      <button id="report" type="button" class="btn btn-success btn-sm" data-point-id="{{id}}">
+      <button id="report" type="button" class="btn btn-warning btn-sm" data-point-id="{{id}}">
         Şikayet et
       </button>
    <% end %>
@@ -29,3 +36,61 @@
     <%= image_tag "avatar.png", :class => "img-avatar pull-right", :alt => "user avatar", :title => "Ekleyen ?" %>
   </div>
 </script>
+
+<script type="text/javascript">
+  // send message
+  $(document).on('click', '#send_message', function() {
+    var button = $(this);
+    //button.html('...');
+    console.log("asdasd")
+    var recipient_id =  $("#btn_message").attr('data-recipient_id-id')
+    console.log(recipient_id)
+    data = $("form#new_message").serialize() + "&recipient_id=" + recipient_id
+    console.log(data)
+    $.post('/messages.json',data, 
+      function(data) {
+      console.log("response",data)  
+      if (data.success == true) {
+        $('#exampleModal').modal('toggle');
+        $('.modal-backdrop.in').css({"opacity":0});
+        $('#mesajSended').show();
+      } else {
+        
+        
+      }
+    });
+  });
+</script>
+
+ <div class="modal fade" id="exampleModal"
+   tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+        <span aria-hidden="true">&times;</span></button>
+        <h4 class="modal-title" id="exampleModalLabel">Yeni mesaj</h4>
+      </div>
+      <div class="modal-body">
+        <form action="/messages" id="new_message" method="post">
+         <div class="form-group">
+            <label for="message_subject" class="control-label">Konu:</label>
+            <input class="form-control" id="message_subject" name="message[subject]" size="30" type="text">
+          </div>
+         <div class="form-group">
+            <label for="message-text" class="control-label">Mesaj:</label>
+            <textarea class="form-control" id="message-text" name="message[body]"></textarea>
+          </div>
+        </form>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-default" data-dismiss="modal">Vazgeç</button>
+        <button type="button" id="send_message" class="btn btn-primary">Gönder</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+
+

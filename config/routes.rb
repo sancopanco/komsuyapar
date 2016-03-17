@@ -1,5 +1,8 @@
 YesilHarita::Application.routes.draw do
 
+  resources :messages
+
+
   root to: "hello#index"
 
   get "/harita" => "hello#map", :as => :map
@@ -13,6 +16,9 @@ YesilHarita::Application.routes.draw do
   post "/lokasyon(.:format)" => "points#create"
   get "/lokasyon/:id(.:format)" => "points#show", :as => :point
   post "/report(.:format)" => "points#report"
+
+  get '/users(.:format)' => "users#index", :as => :users
+
 
   # The priority is based upon order of creation:
   # first created -> highest priority.
