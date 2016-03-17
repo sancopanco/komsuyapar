@@ -21,7 +21,7 @@ gem 'quiet_assets', group: :development
 gem 'dalli'
 gem 'redis'
 gem 'hiredis'
-gem 'sidekiq'
+#gem 'sidekiq'
 gem 'kaminari'
 gem 'pg_search'
 
