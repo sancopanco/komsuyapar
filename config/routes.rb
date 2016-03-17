@@ -5,6 +5,7 @@ YesilHarita::Application.routes.draw do
 
   root to: "hello#index"
 
+  
   get "/harita" => "hello#map", :as => :map
   get "/yeninokta" => "points#new", :as => :add
   get "/nedir" => "hello#about", :as => :about
@@ -18,7 +19,7 @@ YesilHarita::Application.routes.draw do
   post "/report(.:format)" => "points#report"
 
   get '/users(.:format)' => "users#index", :as => :users
-
+  get '/bildirimler' => 'users#bildirimler' 
 
   # The priority is based upon order of creation:
   # first created -> highest priority.

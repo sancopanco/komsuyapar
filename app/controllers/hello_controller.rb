@@ -18,5 +18,5 @@ class HelloController < ApplicationController
     @page_description = ""
     @wrapped = true
   end
-
+  
 end
