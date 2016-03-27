@@ -1,7 +1,7 @@
 <% content_for :head do %>
   <%= stylesheet_link_tag "map" %>
   <script type="text/javascript">
-    $(function() {
+    $(document).on('page:load', function(){
       init();
       initSearch(true);
       initMap();
