@@ -36,3 +36,24 @@
 //   //alert(data.message);
 //   console.log(data.message)
 // });
+
+  $(document).on('click', '#send_message', function() {
+    var button = $(this);
+    //button.html('...');
+    console.log("asdasd")
+    var recipient_id =  $("#btn_message").attr('data-recipient_id-id')
+    console.log(recipient_id)
+    data = $("form#new_message").serialize() + "&recipient_id=" + recipient_id
+    console.log(data)
+    $.post('/messages.json',data, 
+      function(data) {
+      console.log("response",data)  
+      if (data.success == true) {
+        $('#exampleModal').modal('toggle');
+        $('.modal-backdrop.in').css({"opacity":0});
+      } else {
+        $('#exampleModal').modal('toggle');
+        $('.modal-backdrop.in').css({"opacity":0});
+      }
+    });
+  });
