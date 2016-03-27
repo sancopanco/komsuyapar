@@ -16,29 +16,41 @@
         İhtiyacın olan hizmetleri yakın çevrenden ara, yapabileceklerini sen de ekle!
       </p>
 
-      <%= form_tag users_path, method: :get, :class=>"yetenek-search" do %>
-        <p>
-           <div class="input-group input-group-lg">
-                <input id="city" class="form-control" name="query" autocomplete="false"
-                type="text" placeholder="Hizmet ara..." value="<% params[:query] %>">
-                <span class="input-group-btn">
-                        <button class="btn" type="submit">Ara</button>
-                </span>
-              </div>
-        </p>
-      <%end%>
+      <div class="row">
+        <div class="col-lg-10 pull-right">
+      <%= form_tag backend_search_path, method: :get, :class=>"yetenek-search"  do %>
+          <div class="col-xs-5">
 
-
-
-      
-       
+           <input id="city" class="form-control input-lg" name="query" autocomplete="false"
+                type="text" placeholder="Hizmet ara... örnek:Doktor" value="<% params[:query] %>">
+          </div>
+          <div class="col-xs-3">
+            <select class="form-control input-lg" name="loc">
+                <option>İstanbul</option>
+                <option> Ankara</option>
+                <option> İzmir</option>
+                <option> Bursa</option>
+                <option> Adana</option>
+                <option> Antalya</option>
+                <option> Diyarbakır</option>
+                <option> Osmaniye</option>
+                <option> Hatay</option>
+                <option> Mersin </option>
+                <option> Malatya</option>
+             </select>
+          </div>
+          <div class="col-xs-2">
+            <span class="input-group-btn">
+                   <button class="btn btn-block btn-lg" type="submit">Ara</button>
+             </span>
+          </div>
+        <%end%>
+        </div>
+      </div>
+      <br/> 
        <p>
         <%= link_to "SEN DE YETENEKLERİNİ EKLE", 
           add_path,:class=>"btn btn-lg btn-yetenek-ekle" %> 
-        </p>
-        <p>
-        <%= link_to "Haritaya git", 
-          map_path,:class=>"btn btn-lg btn-yetenek-ekle" %> 
         </p>
   </div>
 </div>

@@ -1,0 +1,14 @@
+[
+	{
+		objectID: "1",
+		name: "Goroka",
+		city: "Goroka",
+		country: "Papua New Guinea",
+		airport_id: "GKA",
+	_geoloc: {
+		lat: -6.081689,
+		lng: 145.391881
+		},
+		nb_airline_liaisons: 10
+	}
+]

@@ -1,4 +1,6 @@
-YesilHarita::Application.routes.draw do
+Rails.application.routes.draw do
+
+
 
   resources :messages
 
@@ -7,11 +9,11 @@ YesilHarita::Application.routes.draw do
 
   
   get "/harita" => "hello#map", :as => :map
-  get "/yeninokta" => "points#new", :as => :add
+  get "/yeni_yetenek_point" => "points#new", :as => :add
   get "/nedir" => "hello#about", :as => :about
 
-  match "/auth/:provider/callback" => "sessions#create"
-  match "/sign-out" => "sessions#destroy", :as => :sign_out
+  match "/auth/:provider/callback" => "sessions#create",via: [:get, :post]
+  post "/sign-out" => "sessions#destroy", :as => :sign_out
 
   get "/lokasyon(.:format)" => "points#index", :as => :points
   post "/lokasyon(.:format)" => "points#create"
@@ -19,23 +21,31 @@ YesilHarita::Application.routes.draw do
   post "/report(.:format)" => "points#report"
 
   get '/users(.:format)' => "users#index", :as => :users
-  get '/bildirimler' => 'users#bildirimler' 
+  get '/bildirimler' => 'messages#index' 
 
-  # The priority is based upon order of creation:
-  # first created -> highest priority.
+  get '/auto_complete' => 'visitors#auto_complete', :as=> :auto_complete
+  get '/instant_search' => 'visitors#instant_search', :as=> :instant_search
+  get '/instant_search_wiget' => 'visitors#instant_search_wiget', :as=> :instant_search_wiget
+  get '/geo_search' => 'visitors#geo_search', :as=> :geo_search
+  match "/backend-search" => 'search#index', via: [:post, :get], as: :backend_search
 
-  # Sample of regular route:
-  #   match 'products/:id' => 'catalog#view'
-  # Keep in mind you can assign values other than :controller and :action
 
-  # Sample of named route:
-  #   match 'products/:id/purchase' => 'catalog#purchase', :as => :purchase
-  # This route can be invoked with purchase_url(:id => product.id)
+  # The priority is based upon order of creation: first created -> highest priority.
+  # See how all your routes lay out with "rake routes".
 
-  # Sample resource route (maps HTTP verbs to controller actions automatically):
+  # You can have the root of your site routed with "root"
+  # root 'welcome#index'
+
+  # Example of regular route:
+  #   get 'products/:id' => 'catalog#view'
+
+  # Example of named route that can be invoked with purchase_url(id: product.id)
+  #   get 'products/:id/purchase' => 'catalog#purchase', as: :purchase
+
+  # Example resource route (maps HTTP verbs to controller actions automatically):
   #   resources :products
 
-  # Sample resource route with options:
+  # Example resource route with options:
   #   resources :products do
   #     member do
   #       get 'short'
@@ -47,34 +57,31 @@ YesilHarita::Application.routes.draw do
   #     end
   #   end
 
-  # Sample resource route with sub-resources:
+  # Example resource route with sub-resources:
   #   resources :products do
   #     resources :comments, :sales
   #     resource :seller
   #   end
 
-  # Sample resource route with more complex sub-resources
+  # Example resource route with more complex sub-resources:
   #   resources :products do
   #     resources :comments
   #     resources :sales do
-  #       get 'recent', :on => :collection
+  #       get 'recent', on: :collection
   #     end
   #   end
 
-  # Sample resource route within a namespace:
+  # Example resource route with concerns:
+  #   concern :toggleable do
+  #     post 'toggle'
+  #   end
+  #   resources :posts, concerns: :toggleable
+  #   resources :photos, concerns: :toggleable
+
+  # Example resource route within a namespace:
   #   namespace :admin do
   #     # Directs /admin/products/* to Admin::ProductsController
   #     # (app/controllers/admin/products_controller.rb)
   #     resources :products
   #   end
-
-  # You can have the root of your site routed with "root"
-  # just remember to delete public/index.html.
-  # root :to => 'welcome#index'
-
-  # See how all your routes lay out with "rake routes"
-
-  # This is a legacy wild controller route that's not recommended for RESTful applications.
-  # Note: This route will make all actions in every controller accessible via GET requests.
-  # match ':controller(/:action(/:id(.:format)))'
 end

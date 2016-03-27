@@ -30,8 +30,6 @@ class PointsController < ApplicationController
   def new
     @page_name = "Yetenek ekle | "
     @page_description = "Yeni yetenek ekle"
-    @wrapped = true
-
     @point = Point.new
 
     respond_to do |format|
@@ -42,7 +40,8 @@ class PointsController < ApplicationController
   # POST /points
   # POST /points.json
   def create
-    @point =  current_user.points.build(params[:point])
+    puts "point_params:#{point_params}"
+    @point =  current_user.points.build(point_params)
     @point.user_uid = current_user.uid
     skill_ids = params[:point_skils][:ids]
     puts "skill_ids: #{skill_ids}"
@@ -81,6 +80,13 @@ class PointsController < ApplicationController
       end
 
     end
+  end
+
+  private
+
+  def point_params
+    params.permit(:point_skils)
+    params.require(:point).permit(:lat, :lng, :address, :point_type)
   end
 
 end

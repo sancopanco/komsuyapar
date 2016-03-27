@@ -1,0 +1,68 @@
+
+<% content_for :head do %>
+  <%= stylesheet_link_tag "geo_search" %>
+ <script src="//cdn.jsdelivr.net/algoliasearch/3/algoliasearch.min.js"></script>
+  <script src="//cdn.jsdelivr.net/algoliasearch.helper/2/algoliasearch.helper.min.js"></script>
+  <script src="//cdn.jsdelivr.net/hogan.js/3.0.2/hogan.min.common.js"></script>
+  <%= javascript_include_tag "geo_search" %>
+  <script type="text/javascript">
+
+  </script>
+<% end %>
+
+  <header>
+    <a href="" class="change_page_state page_mode mode_button active" data-mode="bounding" data-state="rectangle">Bounding box</a>
+    <a href="" class="change_page_state page_mode mode_button" data-mode="around"   data-state="ist">Around İstanbul</a>
+    <p class="page_mode active" data-mode="bounding">
+      bounding box ile sonuçları istediğiniz bölgeler için filtreleyebilirsiniz.
+    </p>
+    <p class="page_mode" data-mode="around">
+      Etrafınızdaki yetenekler mesafe sıralı
+    </p>
+  </header>
+
+
+  <!-- Hits and Map -->
+  <section class="map_section">
+    <div class="left-column">
+      <input id="search-input" type="text" autocomplete="off" spellcheck="false" autocorrect="off" placeholder="Ara isim, şehir veya yetenek ile"/>
+      <div id="hits"></div>
+    </div>
+
+    <div class="right-column">
+      <div id="map"></div>
+    </div>
+
+    <div class="clear-both"></div>
+  </section>
+  <!-- /Hits and Map -->
+
+
+
+
+
+  <!-- Hit template -->
+  <script type="text/template" id="hits-template">
+    {{#hits}}
+    <div class="hit">
+      <h2 class="hit-name">{{{ _highlightResult.name.value }}}{{^ displayCity }} - {{{ _highlightResult.city.value }}}{{/displayCity}}</h2>
+      <p class="hit-location">{{{ _highlightResult.country.value }}}<span class="hit-distance"> {{ distance }}</span></p>
+    </div>
+    {{/hits}}
+  </script>
+  <!-- /Hit template -->
+
+
+  <!-- No-Results template -->
+  <script type="text/template" id="no-results-template">
+    <div id="no-results-message">
+      <p>yok lan bole bişey</p>
+    </div>
+  </script>
+  <!-- /No-Results template -->
+
+
+  <!-- Javascript -->
+  
+
+

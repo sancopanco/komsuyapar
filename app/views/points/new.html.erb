@@ -3,17 +3,16 @@
   <script type="text/javascript">
     $(function() {
       init();
-      initSearch(true);
       initMap();
 
-      $("#point_skils_ids").select2({
-        theme: "bootstrap",
-        placeholder: "Yeteneklerini ekle...",
-        allowClear: true,
-        tokenSeparators: [','],
-        maximumInputLength: 50,
-        minimumInputLength: 2
-      });
+      // $("#point_skils_ids").select2({
+      //   theme: "bootstrap",
+      //   placeholder: "Yeteneklerini ekle...",
+      //   allowClear: true,
+      //   tokenSeparators: [','],
+      //   maximumInputLength: 50,
+      //   minimumInputLength: 2
+      // });
 
     });
  </script>
@@ -46,8 +45,12 @@
           <div class="form-group">
             <%= f.label :other, "Yetenekler", :class => "col-lg-3 control-label" %>
             <div class="col-lg-9">
-              <%= collection_select :point_skils,:ids, Tag.order(:name), :id, :name, {}, {:class => "form-control",multiple: true}
+              <%= collection_select :point_skils,:ids, Tag.order(:name), :id, :name, {}, {:class => "form-control js-example-basic-multiple",multiple: "multiple"}
               %>
+
+              <script type="text/javascript">
+                  $(".js-example-basic-multiple").select2();
+              </script>
             
             </div>
           </div>

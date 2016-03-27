@@ -51,23 +51,21 @@ function zoomOn(location) {
 //================================================================================================= INIT SEARCH
 
 function initSearch(local) {
-  var hash = document.location.hash.replace("#", "").trim();
-  if (hash != "" && hash != "_=_" && document.getElementById("map-canvas")) {
-    zoomOn(decodeURIComponent(document.location.hash));
-  }
-  $("#search").submit(function(event) {
-    var city = $("#city").val().trim();
+  //var hash = document.location.hash.replace("#", "").trim();
+  // if (hash != "" && hash != "_=_" && document.getElementById("map-canvas")) {
+  //   zoomOn(decodeURIComponent(document.location.hash));
+  // }
+  $("form.yetenek-search").submit(function(event) {
+    
+    var data_arr = $(this).serializeArray()
+    console.log(data_arr)
+    var yetenek = data_arr[1].trim() 
+    var city = data_arr[2].trim()
     if (!city) {
       return false;
     }
-    local = local || false;
-    if (local) {
-      zoomOn(city);
-      document.location.hash = encodeURIComponent(city);
-    } else {
-      window.location = map_path + "#" + encodeURIComponent(city);
-    }
-    return false;
+
+    return true;
   });
 }
 

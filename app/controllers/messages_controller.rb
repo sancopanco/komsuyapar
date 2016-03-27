@@ -40,7 +40,7 @@ class MessagesController < ApplicationController
   # POST /messages
   # POST /messages.json
   def create
-    @message = Message.new(params[:message])
+    @message = Message.new(message_params)
     @message.sender_id = current_user.id
     @message.recipient_id = params[:recipient_id]
 
@@ -83,5 +83,11 @@ class MessagesController < ApplicationController
       format.html { redirect_to messages_url }
       format.json { head :no_content }
     end
+  end
+
+private
+  def message_params
+    params.permit(:recipient_id)
+    params.require(:message).permit(:subject, :body)
   end
 end

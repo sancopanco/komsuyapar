@@ -1,13 +1,11 @@
-<h1>Listing messages</h1>
+<h3 class="text-center">Mesajlarım</h3>
 
-<table>
-<% @messages.each do |message| %>
-  <tr>
-   <%= render message %>
-  </tr>
-<% end %>
+<table class="table table-striped">
+<tbody>
+	<th>Konu</th>
+	<th>Kimden</th>
+	<th>Mesaj</th>
+	<th>Tarih</th>
+</tbody>
+ <%= render @messages %>
 </table>
-
-<br />
-
-

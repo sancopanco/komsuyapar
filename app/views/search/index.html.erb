@@ -1,0 +1,130 @@
+<% content_for :head do %>
+  <%= stylesheet_link_tag "geo_search" %>
+  <%= stylesheet_link_tag "search" %>
+  <%= javascript_include_tag "geo_search" %>
+  <script type="text/javascript">
+     // send message
+  $(document).on('click', '#send_message', function() {
+    var button = $(this);
+    //button.html('...');
+    console.log("asdasd")
+    var recipient_id =  $("#btn_message").attr('data-recipient_id-id')
+    console.log(recipient_id)
+    data = $("form#new_message").serialize() + "&recipient_id=" + recipient_id
+    console.log(data)
+    $.post('/messages.json',data, 
+      function(data) {
+      console.log("response",data)  
+      if (data.success == true) {
+        $('#exampleModal').modal('toggle');
+        $('.modal-backdrop.in').css({"opacity":0});
+      } else {
+        $('#exampleModal').modal('toggle');
+        $('.modal-backdrop.in').css({"opacity":0});
+      }
+    });
+  });
+
+  </script>
+  
+<% end %>
+
+
+<% content_for :map_search_navigation do %>
+  <li>
+      <a href="" class="change_page_state page_mode mode_button active" 
+     data-mode="bounding" data-state="rectangle">Çerçeve ile ara</a>
+  </li>
+  <li>
+  <a href="" class="change_page_state page_mode mode_button" data-mode="around"  
+            data-state="ist">Yakınımda</a>
+  </li>
+<% end %>
+
+  <!-- Filters and map -->
+  <div class="container-fluid" style="margin-top: 50px;">
+    <div class="row">
+
+      <!-- Left col -->
+      <div class="col-sm-5 aisdemo--left-column">
+
+        <div class="aisdemo-filters ">
+          <div class="row aisdemo-filter">
+          <input id="search-input" type="text" autocomplete="off" spellcheck="false" autocorrect="off" placeholder="Ara isim, şehir veya yetenek ile"/>
+            
+          </div>
+
+          <div id="hits"></div>
+         
+        </div>
+
+      </div>
+      <!-- /Left col -->
+
+      <!-- Right col -->
+      <div class="col-sm-7 aisdemo--right-column">
+        <div id="map"></div>
+      </div>
+      <!-- /Right col -->
+
+    </div>
+  </div>
+
+
+
+
+
+  <!-- Hit template -->
+  <!-- <script type="text/template" id="hits-template">
+    {{#hits}}
+    <div class="hit">
+      <h2 class="hit-name">{{{ _highlightResult.name.value }}}{{^ displayCity }} - {{{ _highlightResult.city.value }}}{{/displayCity}}</h2>
+      <p class="hit-location">{{{ _highlightResult.country.value }}}<span class="hit-distance"> {{ distance }}</span></p>
+    </div>
+    {{/hits}}
+  </script> -->
+  <!-- /Hit template -->
+
+
+    <!-- Hit template -->
+  <script type="text/template" id="hits-template">
+    {{#hits}}
+      <div class="row aisdemo-filter">
+            <div class="col-sm-4 aisdemo-filter-title">
+              <h2 class="hit-name">{{{ _highlightResult.name.value }}}{{^ displayCity }} - {{{ _highlightResult.city.value }}}{{/displayCity}}</h2>
+            </div>
+            <div class="col-sm-2">
+              <h2 class="hit-name">
+              <p class="hit-location">{{{ _highlightResult.country.value }}}<span class="hit-distance"> {{ distance }}</span></p>
+             </h2>
+            </div>
+            <div class="col-sm-3">
+            <button id="btn_message" data-toggle="modal"
+             data-target="#exampleModal" type="button" class="btn btn-info btn-sm" 
+             data-recipient_id-id="{{{objectID}}}" >
+            <i class="fa fa-envelope"></i> Mesaj Gönder
+          </button>
+             
+            </div>
+            <div class="col-sm-3">
+              {{#skills}}
+                 <span class="hit-name"> {{{ title }}} </span>
+              {{/skills}}
+            </div>
+      </div>
+  {{/hits}}
+ </script>
+  <!-- /Hit template -->
+
+
+  <!-- No-Results template -->
+  <script type="text/template" id="no-results-template">
+    <div id="no-results-message">
+      <p>Aranan kriterlere uygun veri bulunamadı.</p>
+    </div>
+  </script>
+  <!-- /No-Results template -->
+
+
+  <!-- Javascript -->
+  

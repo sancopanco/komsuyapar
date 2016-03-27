@@ -1,7 +1,8 @@
 source 'http://rubygems.org'
 
-gem 'rails', '3.2.16'
-ruby '2.0.0'
+ruby '2.1.2'
+
+gem 'rails', '~> 4.2.0'
 # Bundle edge Rails instead:
 # gem 'rails',     :git => 'git://github.com/rails/rails.git'
 
@@ -16,6 +17,19 @@ gem "select2-rails"
 gem "font-awesome-rails"
 gem 'pusher'
 
+
+gem 'uglifier', '>= 1.3.0'
+gem 'coffee-rails', '~> 4.0.0'
+gem 'jquery-rails'
+gem 'turbolinks'
+
+gem "twitter-bootstrap-rails"
+
+
+gem 'sass-rails'
+gem 'geocoder'
+
+gem 'hogan_assets'
 gem 'quiet_assets', group: :development
 
 gem 'dalli'
@@ -23,16 +37,12 @@ gem 'redis'
 gem 'hiredis'
 #gem 'sidekiq'
 gem 'kaminari'
-gem 'pg_search'
+#gem 'pg_search'
+gem "algoliasearch-rails"
 
-# Gems used only for assets and not required
-# in production environments by default.
-group :assets do
-  gem 'sass-rails'
-  gem 'uglifier'
-end
+gem "faker"
 
-gem 'jquery-rails'
+
 gem 'rails_12factor', group: :production
 
 # Use unicorn as the web server

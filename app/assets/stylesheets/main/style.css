@@ -20,28 +20,11 @@ html, body {
   color: #e25a00;
 }
 
-/*================================================================================================= WRAP */
 
-#wrap {
-  min-height: 100%;
-  /*height: auto !important;*/
-  height: 100%;
-  margin: 0 auto -60px;
-  padding: 0 0 60px;
-  
-  position: relative;
-    width: 100%;
-    min-height: auto;
-    -webkit-background-size: cover;
-    -moz-background-size: cover;
-    background-size: cover;
-    -o-background-size: cover;
-    background-position: center;
-   /* background-image: url('/assets/header.jpg');*/
-    text-align: center;
-}
 
-#wrap > .container {
+
+
+main > .container {
   padding: 100px 15px 40px;
 }
 
@@ -64,21 +47,21 @@ html, body {
 .navbar .navbar-nav .active a,
 .navbar .navbar-nav .active a:hover {
   color: #fff !important;
-  background-color: #407f00 !important;
+  background-color: #22BECE !important;
 }
 
 /*=============================================== TOGGLE */
 
 .navbar .navbar-header .navbar-toggle {
-  border-color: #9fbf7f;
+  border-color: #22BECE;
 }
 
 .navbar .navbar-header .navbar-toggle:hover {
-  background-color: #407f00;
+  background-color: #22BECE;
 }
 
 .navbar .navbar-header .navbar-toggle .icon-bar {
-  background-color: #d9e5cc;
+  background-color: #22BECE;
 }
 
 /*=============================================== BRAND */
@@ -97,7 +80,7 @@ html, body {
 /*=============================================== COLLAPSE */
 
 .navbar .navbar-collapse {
-  border-color: #407f00;
+  border-color: #22BECE;
 }
 
 /*=============================================== FORM */
@@ -108,9 +91,7 @@ html, body {
   box-shadow: none;
 }
 
-.navbar .navbar-form input:focus {
-  border-color: #407f00;
-}
+
 
 .navbar .navbar-form button:hover {
   background-color: #eee;
@@ -120,7 +101,7 @@ html, body {
 
 .navbar .navbar-nav .open .dropdown-toggle {
   color: #fff !important;
-  background-color: #407f00 !important;
+  background-color: #22BECE !important;
 }
 
 .navbar .navbar-nav .dropdown .dropdown-toggle .caret {
@@ -142,11 +123,11 @@ html, body {
 }
 
 .navbar .navbar-nav .dropdown .dropdown-menu {
-  background-color: #407f00;
+  background-color: #22BECE;
 }
 
 .navbar .navbar-nav .dropdown .dropdown-menu li a:hover {
-  background-color: #539000;
+  background-color: #22BECE;
 }
 
 /*================================================================================================= FOOTER */
