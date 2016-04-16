@@ -42,9 +42,6 @@
 
 genel_skill_list = Tag.all.map(&:name)
 
-# uid: "10153993065207769", email: "keremkurban@hotmail.com", name: "Kerem Kurban"
-# uid: "984530874964450", email: "mmfates@hotmail.com", name: "A Fatih Muhammed"
-
 
 
 100.times do |i|

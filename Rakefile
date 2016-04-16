@@ -4,4 +4,4 @@
 
 require File.expand_path('../config/application', __FILE__)
 
-YesilHarita::Application.load_tasks
+Komsuyapar::Application.load_tasks
